@@ -1,21 +1,22 @@
+import styled from "styled-components";
 import { ArtPiece } from "@/components/Art Piece/ArtPiece";
 
-export default function HomePage({ data }) {
-  console.log(data);
+const Styled_spotlight = styled.div``;
+
+export default function _spotlight({ data }) {
+  const randomNum = Math.floor(Math.random() * 11);
+
+  const randomPic = data[randomNum];
 
   return (
-    <div>
-      <h1>Art Gallery</h1>
-      {data.map((pic, index) => {
-        return (
-          <ArtPiece
-            key={index}
-            src={data[index].imageSource}
-            name={pic.name}
-            artist={pic.artist}
-          />
-        );
-      })}
-    </div>
+    <Styled_spotlight>
+      {
+        <ArtPiece
+          src={randomPic.imageSource}
+          name={randomPic.name}
+          artist={randomPic.artist}
+        />
+      }
+    </Styled_spotlight>
   );
 }

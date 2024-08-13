@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-const StyledFooter = styled.footer`
+const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,8 +9,9 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 10%;
   position: fixed;
-  bottom: 0px;
+  top: 0px;
   background: black;
+  color: white;
   text-align: center;
 
   a {
@@ -18,11 +19,10 @@ const StyledFooter = styled.footer`
   }
 `;
 
-export default function Footer() {
+export default function Header() {
   return (
-    <StyledFooter>
-      <Link href="/">Spotlight</Link>
-      <Link href="/art-pieces">Art Pieces</Link>
-    </StyledFooter>
+    <StyledHeader>
+      <h1>Art Gallery</h1>
+    </StyledHeader>
   );
 }

@@ -1,4 +1,5 @@
 import { ArtPiece } from "@/components/Art Piece/ArtPiece";
+import Link from "next/link";
 import styled from "styled-components";
 
 const StyledArtPieces = styled.div`
@@ -13,12 +14,13 @@ export default function HomePage({ data }) {
     <StyledArtPieces>
       {data.map((pic, index) => {
         return (
-          <ArtPiece
-            key={index}
-            src={data[index].imageSource}
-            name={pic.name}
-            artist={pic.artist}
-          />
+          <Link key={index} href={`/art-pieces/${pic.slug}`}>
+            <ArtPiece
+              src={data[index].imageSource}
+              name={pic.name}
+              artist={pic.artist}
+            />
+          </Link>
         );
       })}
     </StyledArtPieces>

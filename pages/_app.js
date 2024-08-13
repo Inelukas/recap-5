@@ -23,6 +23,8 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>loading...</div>;
   if (!artData) return <div>no data</div>;
 
+  console.log(data);
+
   return (
     <>
       <GlobalStyle />

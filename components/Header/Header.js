@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   background: black;
   color: white;
   text-align: center;
+  z-index: 2;
 
   a {
     color: white;

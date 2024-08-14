@@ -9,18 +9,21 @@ const StyledArtPieces = styled.div`
   gap: 30px;
 `;
 
-export default function HomePage({ data }) {
+export default function HomePage({ data, onToggleFavourite, artPiecesInfo }) {
+  console.log(artPiecesInfo);
   return (
     <StyledArtPieces>
       {data.map((pic, index) => {
         return (
-          <Link key={index} href={`/art-pieces/${pic.slug}`}>
-            <ArtPiece
-              src={data[index].imageSource}
-              name={pic.name}
-              artist={pic.artist}
-            />
-          </Link>
+          <ArtPiece
+            key={index}
+            src={data[index].imageSource}
+            name={pic.name}
+            artist={pic.artist}
+            onToggleFavourite={onToggleFavourite}
+            slug={pic.slug}
+            artPiecesInfo={artPiecesInfo}
+          />
         );
       })}
     </StyledArtPieces>

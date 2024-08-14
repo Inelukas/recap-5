@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ArtPiece } from "../Art Piece/ArtPiece";
 import Image from "next/image";
 import Link from "next/link";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const StyledArtPieceDetails = styled.div`
   display: flex;
@@ -20,16 +21,19 @@ const StyledArtPieceDetails = styled.div`
   }
 `;
 
-export function ArtPieceDetails({ data }) {
-  console.log(data);
-
+export function ArtPieceDetails({ data, artPiecesInfo, onToggleFavourite }) {
   return (
     <StyledArtPieceDetails>
-      <h2>{data.name}</h2>
-      <Image src={data.imageSource} height={400} width={400} alt={data.name} />
+      <ArtPiece
+        src={data.imageSource}
+        name={data.name}
+        artist={data.artist}
+        slug={data.slug}
+        artPiecesInfo={artPiecesInfo}
+        onToggleFavourite={onToggleFavourite}
+      />
       <span>
-        Artist: {data.artist}&nbsp;-&nbsp; Year: {data.year}&nbsp;-&nbsp; Genre:{" "}
-        {data.genre}
+        Year: {data.year}&nbsp;-&nbsp; Genre: {data.genre}
       </span>
       <Link href="/art-pieces" className="button">
         <button>Back</button>

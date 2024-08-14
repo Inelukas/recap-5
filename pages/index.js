@@ -8,6 +8,8 @@ export default function _spotlight({ data }) {
 
   const randomPic = data[randomNum];
 
+  console.log(randomPic);
+
   return (
     <Styled_spotlight>
       {

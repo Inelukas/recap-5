@@ -17,6 +17,8 @@ export default function _spotlight({ data }) {
           src={randomPic.imageSource}
           name={randomPic.name}
           artist={randomPic.artist}
+          slug={randomPic.slug}
+          showButton={false}
         />
       }
     </Styled_spotlight>

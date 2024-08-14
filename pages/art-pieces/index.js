@@ -23,6 +23,7 @@ export default function HomePage({ data, onToggleFavourite, artPiecesInfo }) {
             onToggleFavourite={onToggleFavourite}
             slug={pic.slug}
             artPiecesInfo={artPiecesInfo}
+            showButton={true}
           />
         );
       })}

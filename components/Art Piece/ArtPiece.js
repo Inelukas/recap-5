@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Image from "next/image";
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
 import Link from "next/link";
-// import { useRouter } from "next/router";
 
 const StyledArtPiece = styled.div`
   display: flex;
@@ -21,11 +20,8 @@ export function ArtPiece({
   onToggleFavourite,
   slug,
   artPiecesInfo,
+  showButton,
 }) {
-  // const router = useRouter()
-
-  console.log(slug);
-
   return (
     <StyledArtPiece>
       <h2>{name}</h2>
@@ -33,7 +29,7 @@ export function ArtPiece({
         <Image src={src} height={400} width={400} alt={name} />
       </Link>
       <h3>{artist}</h3>
-      {!slug ? null : (
+      {!showButton ? null : (
         <FavouriteButton
           onToggleFavourite={() => onToggleFavourite(slug)}
           artPiecesInfo={artPiecesInfo}

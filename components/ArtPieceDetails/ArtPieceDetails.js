@@ -31,6 +31,7 @@ export function ArtPieceDetails({ data, artPiecesInfo, onToggleFavourite }) {
         slug={data.slug}
         artPiecesInfo={artPiecesInfo}
         onToggleFavourite={onToggleFavourite}
+        showButton={true}
       />
       <span>
         Year: {data.year}&nbsp;-&nbsp; Genre: {data.genre}

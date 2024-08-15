@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import { ArtPiece } from "@/components/Art Piece/ArtPiece";
 import { ArtPieceDetails } from "@/components/ArtPieceDetails/ArtPieceDetails";
 import { useRouter } from "next/router";
 

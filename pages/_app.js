@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
         );
       }
     }
-  }, [data, artData]);
+  }, [data, artData, artPiecesInfo, setArtPiecesInfo]);
 
   function handleToggleFavourite(slug) {
     setArtPiecesInfo(

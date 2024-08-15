@@ -7,8 +7,9 @@ const StyledArtPiece = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
-  height: 600px;
+  justify-content: center;
+  width: 500px;
+  height: 500px;
   border: 2px solid black;
   position: relative;
 
@@ -35,7 +36,7 @@ export function ArtPiece({
     <StyledArtPiece>
       <h2>{artPiece.name}</h2>
       <Link href={`/art-pieces/${artPiece.slug}`}>
-        <Image src={src} height={400} width={400} alt={artPiece.name} />
+        <Image src={src} height={280} width={280} alt={artPiece.name} />
       </Link>
       {detailed ? (
         <div className="colors">
@@ -52,9 +53,9 @@ export function ArtPiece({
       ) : null}
       <h3>{artPiece.artist}</h3>
       {detailed ? (
-        <p>
+        <span>
           Year: {artPiece.year}&nbsp;-&nbsp; Genre: {artPiece.genre}
-        </p>
+        </span>
       ) : null}
       {!showButton ? null : (
         <FavouriteButton

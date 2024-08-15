@@ -1,23 +1,27 @@
 import styled from "styled-components";
 import { ArtPiece } from "../Art Piece/ArtPiece";
 import Link from "next/link";
+import Image from "next/image";
 import { CommentForm } from "../CommentForm/CommentForm";
 import { Comment } from "../Comment/Comment";
+import backButton from "../../assets/back.png";
 
 const StyledArtPieceDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
-  height: 600px;
-  border: 2px solid black;
-  gap: 20px;
   position: relative;
 
   .button {
     position: absolute;
     top: 5px;
     left: 5px;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -49,7 +53,14 @@ export function ArtPieceDetails({
           detailed={true}
         />
         <Link href="/art-pieces" className="button">
-          <button>Back</button>
+          <button>
+            <Image
+              src={backButton}
+              height={30}
+              width={30}
+              alt={"Back Button"}
+            />
+          </button>
         </Link>
       </StyledArtPieceDetails>
       <StyledCommentSection>

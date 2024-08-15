@@ -5,8 +5,8 @@ const StyledFavouriteButton = styled.button`
   background: none;
   border: none;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: -25px;
+  right: -25px;
   cursor: pointer;
 
   .circle {

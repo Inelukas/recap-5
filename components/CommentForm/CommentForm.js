@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledCommentForm = styled.form`
   width: 200px;
-  height: 400px;
+  height: 350px;
   padding: 50px;
 
   textarea {

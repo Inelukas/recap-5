@@ -23,6 +23,7 @@ export default function Footer() {
     <StyledFooter>
       <Link href="/">Spotlight</Link>
       <Link href="/art-pieces">Art Pieces</Link>
+      <Link href="/favorites">Favourites</Link>
     </StyledFooter>
   );
 }

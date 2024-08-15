@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { ArtPiece } from "../Art Piece/ArtPiece";
-import Image from "next/image";
 import Link from "next/link";
-import FavouriteButton from "../FavouriteButton/FavouriteButton";
 import { CommentForm } from "../CommentForm/CommentForm";
 import { Comment } from "../Comment/Comment";
 
@@ -38,8 +36,6 @@ export function ArtPieceDetails({
   const currentArtPiece = artPiecesInfo.find((artPiece) => {
     return artPiece.slug === data.slug;
   });
-
-  console.log(currentArtPiece);
 
   return (
     <>

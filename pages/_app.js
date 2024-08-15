@@ -2,12 +2,16 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const [artData, setArtData] = useState(null);
-  const [artPiecesInfo, setArtPiecesInfo] = useState(null);
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
+    "artPiecesInfo",
+    { defaultValue: null }
+  );
 
   const fetcher = (...args) =>
     fetch(...args).then((response) => response.json());
@@ -17,11 +21,13 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (data) {
       setArtData(data);
-      setArtPiecesInfo(
-        data.map((artPiece) => {
-          return { slug: artPiece.slug, isFavourite: false, comments: [] };
-        })
-      );
+      if (!artPiecesInfo) {
+        setArtPiecesInfo(
+          data.map((artPiece) => {
+            return { slug: artPiece.slug, isFavourite: false, comments: [] };
+          })
+        );
+      }
     }
   }, [data, artData]);
 

@@ -11,6 +11,16 @@ const StyledArtPiece = styled.div`
   height: 600px;
   border: 2px solid black;
   position: relative;
+
+  .colors {
+    display: flex;
+  }
+
+  .color {
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+  }
 `;
 
 export function ArtPiece({
@@ -27,11 +37,24 @@ export function ArtPiece({
       <Link href={`/art-pieces/${artPiece.slug}`}>
         <Image src={src} height={400} width={400} alt={artPiece.name} />
       </Link>
+      {detailed ? (
+        <div className="colors">
+          {artPiece.colors.map((color, index) => {
+            return (
+              <div
+                key={index}
+                className="color"
+                style={{ background: color }}
+              />
+            );
+          })}
+        </div>
+      ) : null}
       <h3>{artPiece.artist}</h3>
       {detailed ? (
-        <span>
+        <p>
           Year: {artPiece.year}&nbsp;-&nbsp; Genre: {artPiece.genre}
-        </span>
+        </p>
       ) : null}
       {!showButton ? null : (
         <FavouriteButton

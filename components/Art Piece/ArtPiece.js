@@ -15,25 +15,29 @@ const StyledArtPiece = styled.div`
 
 export function ArtPiece({
   src,
-  name,
-  artist,
+  artPiece,
   onToggleFavourite,
-  slug,
   artPiecesInfo,
   showButton,
+  detailed = false,
 }) {
   return (
     <StyledArtPiece>
-      <h2>{name}</h2>
-      <Link href={`/art-pieces/${slug}`}>
-        <Image src={src} height={400} width={400} alt={name} />
+      <h2>{artPiece.name}</h2>
+      <Link href={`/art-pieces/${artPiece.slug}`}>
+        <Image src={src} height={400} width={400} alt={artPiece.name} />
       </Link>
-      <h3>{artist}</h3>
+      <h3>{artPiece.artist}</h3>
+      {detailed ? (
+        <span>
+          Year: {artPiece.year}&nbsp;-&nbsp; Genre: {artPiece.genre}
+        </span>
+      ) : null}
       {!showButton ? null : (
         <FavouriteButton
-          onToggleFavourite={() => onToggleFavourite(slug)}
+          onToggleFavourite={() => onToggleFavourite(artPiece.slug)}
           artPiecesInfo={artPiecesInfo}
-          slug={slug}
+          slug={artPiece.slug}
         />
       )}
     </StyledArtPiece>

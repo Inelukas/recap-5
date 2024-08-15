@@ -13,15 +13,13 @@ export default function HomePage({ data, onToggleFavourite, artPiecesInfo }) {
   console.log(artPiecesInfo);
   return (
     <StyledArtPieces>
-      {data.map((pic, index) => {
+      {data.map((artPiece, index) => {
         return (
           <ArtPiece
             key={index}
             src={data[index].imageSource}
-            name={pic.name}
-            artist={pic.artist}
+            artPiece={artPiece}
             onToggleFavourite={onToggleFavourite}
-            slug={pic.slug}
             artPiecesInfo={artPiecesInfo}
             showButton={true}
           />

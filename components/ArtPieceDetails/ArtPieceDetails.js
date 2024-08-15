@@ -26,16 +26,12 @@ export function ArtPieceDetails({ data, artPiecesInfo, onToggleFavourite }) {
     <StyledArtPieceDetails>
       <ArtPiece
         src={data.imageSource}
-        name={data.name}
-        artist={data.artist}
-        slug={data.slug}
+        artPiece={data}
         artPiecesInfo={artPiecesInfo}
         onToggleFavourite={onToggleFavourite}
         showButton={true}
+        detailed={true}
       />
-      <span>
-        Year: {data.year}&nbsp;-&nbsp; Genre: {data.genre}
-      </span>
       <Link href="/art-pieces" className="button">
         <button>Back</button>
       </Link>

@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
       setArtData(data);
       setArtPiecesInfo(
         data.map((artPiece) => {
-          return { slug: artPiece.slug, isFavourite: false };
+          return { slug: artPiece.slug, isFavourite: false, comments: [] };
         })
       );
     }
@@ -34,6 +34,27 @@ export default function App({ Component, pageProps }) {
       })
     );
   }
+
+  function handleSubmitComment(slug, comment) {
+    const currentDate = new Date();
+    const dateData = `${currentDate.toLocaleTimeString()}, ${currentDate.toLocaleDateString()}`;
+
+    setArtPiecesInfo(
+      artPiecesInfo.map((artPiece) => {
+        return artPiece.slug === slug
+          ? {
+              ...artPiece,
+              comments: [
+                ...artPiece.comments,
+                { comment: comment, time: dateData },
+              ],
+            }
+          : artPiece;
+      })
+    );
+  }
+
+  console.log(artPiecesInfo);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
@@ -50,6 +71,7 @@ export default function App({ Component, pageProps }) {
           data={artData}
           onToggleFavourite={handleToggleFavourite}
           artPiecesInfo={artPiecesInfo}
+          onSubmitComment={handleSubmitComment}
         />
       </Layout>
     </>
